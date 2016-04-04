@@ -3,24 +3,30 @@ package com.raillearn;
 public class Trip {
 
     private final long id;
-    private final String cityFrom;
-    private final String cityTo;
+    private final Route route;
+    private final User user;
+    private final Offer offer;
 
-    public Trip(long id, String cityFrom, String cityTo) {
+    public Trip(long id, Route route, User user, Offer offer) {
         this.id = id;
-        this.cityFrom = cityFrom;
-        this.cityTo = cityTo;
+        this.route = route;
+        this.user = user;
+        this.offer = offer;
     }
 
     public long getId() {
         return id;
     }
 
-    public String getCityFrom() {
-        return cityFrom;
+    public Route getRoute() {
+        return route;
     }
 
-    public String getCityTo() {
-        return cityTo;
+    public User getUser() {
+        return user;
+    }
+
+    public Offer getOffer() {
+        return offer;
     }
 }
