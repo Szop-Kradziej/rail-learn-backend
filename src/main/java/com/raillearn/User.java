@@ -1,12 +1,16 @@
 package com.raillearn;
 
 public class User {
-    private final String photo;
-    private final String name;
+    private String photo;
+    private String name;
 
     public User(String photo, String name) {
         this.photo = photo;
         this.name = name;
+    }
+
+    public User() {
+
     }
 
     public String getPhoto() {
@@ -15,5 +19,13 @@ public class User {
 
     public String getName() {
         return name;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

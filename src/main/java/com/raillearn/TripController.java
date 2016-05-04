@@ -1,9 +1,13 @@
 package com.raillearn;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -14,8 +18,16 @@ public class TripController {
     User user = new User("photo", "Karolka");
     Offer offer = new Offer("Spanish","Hi! Learn spanish with me!");
 
-    @RequestMapping("/trips")
-    public List<Trip> trips() {
-        return Collections.singletonList(new Trip(0, route, user, offer));
+    List<Trip> trips = new ArrayList<Trip>(){{add(new Trip(0, route, user, offer));}};
+
+    @RequestMapping(value = "/trips", method = RequestMethod.GET)
+    public List<Trip> getTrips() {
+        return trips;
+    }
+
+    @RequestMapping(value = "/trips", method = RequestMethod.POST)
+    public Trip postTrip(@RequestBody Trip trip) {
+        trips.add(trip);
+        return trip;
     }
 }
