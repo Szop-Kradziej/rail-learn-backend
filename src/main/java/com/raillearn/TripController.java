@@ -1,5 +1,6 @@
 package com.raillearn;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -7,7 +8,8 @@ import java.util.List;
 @RestController
 public class TripController {
 
-    TripRepository tripRepository = new TripRepository();
+    @Autowired
+    TripRepository tripRepository;
 
     @RequestMapping(value = "/trips", method = RequestMethod.GET)
     public List<Trip> getTrips() {
