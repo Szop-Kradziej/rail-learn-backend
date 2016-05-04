@@ -1,14 +1,9 @@
 package com.raillearn;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class TripController {
@@ -29,5 +24,10 @@ public class TripController {
     public Trip postTrip(@RequestBody Trip trip) {
         trips.add(trip);
         return trip;
+    }
+
+    @RequestMapping(value = "/trips/{id}/join", method = RequestMethod.POST)
+    public Trip postTrip(@PathVariable long id) {
+        return trips.get((int) id);
     }
 }
