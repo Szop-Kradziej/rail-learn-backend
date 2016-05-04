@@ -25,4 +25,9 @@ public class TripController {
     public Trip postTrip(@PathVariable long id) {
         return tripRepository.findOne(id);
     }
+
+    @RequestMapping(value = "/user/login", method = RequestMethod.POST)
+    public String logInUser(@RequestParam String token) {
+        return token;
+    }
 }
