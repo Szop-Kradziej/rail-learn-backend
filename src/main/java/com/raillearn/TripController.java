@@ -27,7 +27,7 @@ public class TripController {
     }
 
     @RequestMapping(value = "/user/login", method = RequestMethod.POST)
-    public String logInUser(@RequestParam String token) {
-        return token;
+    public Token logInUser(@RequestParam String token) {
+        return new Token(token);
     }
 }
