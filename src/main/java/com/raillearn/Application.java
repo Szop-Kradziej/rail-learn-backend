@@ -24,4 +24,9 @@ public class Application {
         tripRepository.save(new Trip(0, route, user, offer));
         return tripRepository;
     }
+
+    @Bean
+    public UserRepository userRepository() {
+        return new UserRepository();
+    }
 }

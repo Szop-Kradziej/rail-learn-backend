@@ -10,6 +10,8 @@ public class TripController {
 
     @Autowired
     TripRepository tripRepository;
+    @Autowired
+    UserRepository userRepository;
 
     @RequestMapping(value = "/trips", method = RequestMethod.GET)
     public List<Trip> getTrips() {
@@ -27,7 +29,7 @@ public class TripController {
     }
 
     @RequestMapping(value = "/user/login", method = RequestMethod.POST)
-    public Token logInUser(@RequestParam String token) {
-        return new Token(token);
+    public LoginData logInUser(@RequestParam String token) {
+        return userRepository.getLoginData(token);
     }
 }
