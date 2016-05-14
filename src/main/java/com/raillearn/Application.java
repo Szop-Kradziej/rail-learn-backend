@@ -17,7 +17,7 @@ public class Application {
     public TripRepository tripRepository() {
         Departure departure = new Departure("Warszawa", "04.04.2016", "17:50");
         Route route = new Route(departure, "Olsztyn", new ArrayList<Departure>());
-        User user = new User("photo", "Karolka");
+        User user = new User("photo", "Karolka", "0");
         Offer offer = new Offer("Spanish","Hi! Learn spanish with me!");
 
         TripRepository tripRepository = new TripRepository();
