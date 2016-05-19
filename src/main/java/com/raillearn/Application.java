@@ -21,7 +21,7 @@ public class Application {
         Offer offer = new Offer("Spanish","Hi! Learn spanish with me!");
 
         TripRepository tripRepository = new TripRepository();
-        tripRepository.save(new Trip(0, route, user, offer));
+        tripRepository.save(new Trip("0", route, user, offer));
         return tripRepository;
     }
 

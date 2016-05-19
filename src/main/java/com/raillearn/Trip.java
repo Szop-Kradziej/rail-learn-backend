@@ -2,12 +2,12 @@ package com.raillearn;
 
 public class Trip {
 
-    private long id;
+    private String id;
     private Route route;
     private User user;
     private Offer offer;
 
-    public Trip(long id, Route route, User user, Offer offer) {
+    public Trip(String id, Route route, User user, Offer offer) {
         this.id = id;
         this.route = route;
         this.user = user;
@@ -15,10 +15,10 @@ public class Trip {
     }
 
     public Trip() {
-        this.id = 0;
+        this.id = "0";
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
@@ -32,6 +32,10 @@ public class Trip {
 
     public Offer getOffer() {
         return offer;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setRoute(Route route) {

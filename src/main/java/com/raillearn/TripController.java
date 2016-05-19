@@ -24,12 +24,17 @@ public class TripController {
     }
 
     @RequestMapping(value = "/trips/{id}/join", method = RequestMethod.POST)
-    public Trip postTrip(@PathVariable long id) {
+    public Trip postTrip(@PathVariable String id) {
         return tripRepository.findOne(id);
     }
 
     @RequestMapping(value = "/user/login", method = RequestMethod.POST)
     public LoginData logInUser(@RequestParam String token) {
         return userRepository.getLoginData(token);
+    }
+
+    @RequestMapping(value = "/trips/update", method = RequestMethod.POST)
+    public Trip updateTrip(@RequestBody Trip trip) {
+        return tripRepository.updateOne(trip);
     }
 }
