@@ -37,4 +37,9 @@ public class TripController {
     public Trip updateTrip(@RequestBody Trip trip) {
         return tripRepository.updateOne(trip);
     }
+
+    @RequestMapping(value = "/trips/{id}/delete", method = RequestMethod.POST)
+    public String deleteTrip(@PathVariable String id) {
+        return tripRepository.deleteOne(id);
+    }
 }

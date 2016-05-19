@@ -47,4 +47,10 @@ public class TripRepository {
         trips.add(index, trip);
         return trip;
     }
+
+    public String deleteOne(String id) {
+        int index = getTripIndex(id);
+        trips.remove(index);
+        return id;
+    }
 }
