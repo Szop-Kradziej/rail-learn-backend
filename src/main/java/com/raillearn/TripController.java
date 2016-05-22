@@ -23,9 +23,9 @@ public class TripController {
         return tripRepository.save(trip);
     }
 
-    @RequestMapping(value = "/trips/{id}/join", method = RequestMethod.POST)
-    public Trip postTrip(@PathVariable String id) {
-        return tripRepository.findOne(id);
+    @RequestMapping(value = "/trips/{trip_id}/join", method = RequestMethod.POST)
+    public Trip postTrip(@PathVariable String trip_id, @RequestParam String user_id) {
+        return tripRepository.joinOne(trip_id, user_id);
     }
 
     @RequestMapping(value = "/user/login", method = RequestMethod.POST)

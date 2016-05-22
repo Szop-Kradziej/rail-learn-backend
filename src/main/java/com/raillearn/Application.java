@@ -20,8 +20,12 @@ public class Application {
         User user = new User("photo", "Karolka", "0");
         Offer offer = new Offer("Spanish","Hi! Learn spanish with me!");
 
+        Route route2 = new Route(departure, "Gdańsk", new ArrayList<Departure>());
+        User user2 = new User("photo", "Obywatel Miś", "0");
+
         TripRepository tripRepository = new TripRepository();
         tripRepository.save(new Trip("0", route, user, offer));
+        tripRepository.save(new Trip("0", route2, user2, offer));
         return tripRepository;
     }
 

@@ -26,8 +26,9 @@ public class TripRepository {
         return id.incrementAndGet();
     }
 
-    public Trip findOne(String id) {
-        int index = getTripIndex(id);
+    public Trip joinOne(String trip_id, String user_id) {
+        int index = getTripIndex(trip_id);
+        trips.get(index).setJoinedUser(user_id);
         return trips.get(index);
     }
 

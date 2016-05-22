@@ -6,6 +6,7 @@ public class Trip {
     private Route route;
     private User user;
     private Offer offer;
+    private String joinedUser;
 
     public Trip(String id, Route route, User user, Offer offer) {
         this.id = id;
@@ -34,6 +35,10 @@ public class Trip {
         return offer;
     }
 
+    public String getJoinedUser() {
+        return joinedUser;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
@@ -48,5 +53,9 @@ public class Trip {
 
     public void setOffer(Offer offer) {
         this.offer = offer;
+    }
+
+    public void setJoinedUser(String joinedUser) {
+        this.joinedUser = joinedUser;
     }
 }
