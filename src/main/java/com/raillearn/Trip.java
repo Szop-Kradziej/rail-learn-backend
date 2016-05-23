@@ -2,17 +2,27 @@ package com.raillearn;
 
 public class Trip {
 
+    public static final String NONE_JOINED_USER = "none_joined_user";
     private String id;
     private Route route;
     private User user;
     private Offer offer;
     private String joinedUser;
 
+    public Trip(String id, Route route, User user, Offer offer, String joinedUser) {
+        this.id = id;
+        this.route = route;
+        this.user = user;
+        this.offer = offer;
+        this.joinedUser = joinedUser;
+    }
+
     public Trip(String id, Route route, User user, Offer offer) {
         this.id = id;
         this.route = route;
         this.user = user;
         this.offer = offer;
+        this.joinedUser = NONE_JOINED_USER;
     }
 
     public Trip() {

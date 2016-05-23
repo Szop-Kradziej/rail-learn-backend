@@ -17,7 +17,6 @@ public class TripRepository {
     public Trip save(Trip trip) {
         String tripId = generateNewTripId().toString();
         trip.setId(tripId);
-
         trips.add(trip);
         return trip;
     }
@@ -26,10 +25,13 @@ public class TripRepository {
         return id.incrementAndGet();
     }
 
-    public Trip joinOne(String trip_id, String user_id) {
-        int index = getTripIndex(trip_id);
-        trips.get(index).setJoinedUser(user_id);
-        return trips.get(index);
+    public Trip joinOne(String tripId, String userId) {
+        int index = getTripIndex(tripId);
+        Trip trip = trips.get(index);
+        if(isTripFreeToJoin(trip)) {
+            trip.setJoinedUser(userId);
+        }
+        return updateOne(trip);
     }
 
     private int getTripIndex(String id) {
@@ -53,5 +55,16 @@ public class TripRepository {
         int index = getTripIndex(id);
         trips.remove(index);
         return id;
+    }
+
+    public Trip cancelJoinOne(String id) {
+        int index = getTripIndex(id);
+        Trip trip = trips.get(index);
+        trip.setJoinedUser(Trip.NONE_JOINED_USER);
+        return updateOne(trip);
+    }
+
+    private boolean isTripFreeToJoin(Trip trip) {
+        return trip.getJoinedUser().equals(Trip.NONE_JOINED_USER);
     }
 }

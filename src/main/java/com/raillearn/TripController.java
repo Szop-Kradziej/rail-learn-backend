@@ -42,4 +42,7 @@ public class TripController {
     public String deleteTrip(@PathVariable String id) {
         return tripRepository.deleteOne(id);
     }
+
+    @RequestMapping(value = "/trips/{id}/cancel", method = RequestMethod.POST)
+    public Trip cancelTrip(@PathVariable String id) { return tripRepository.cancelJoinOne(id);}
 }

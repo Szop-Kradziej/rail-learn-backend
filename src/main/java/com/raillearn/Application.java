@@ -26,6 +26,7 @@ public class Application {
         TripRepository tripRepository = new TripRepository();
         tripRepository.save(new Trip("0", route, user, offer));
         tripRepository.save(new Trip("0", route2, user2, offer));
+        tripRepository.save(new Trip("0", route, user2, offer, "some_joined_user_id"));
         return tripRepository;
     }
 
