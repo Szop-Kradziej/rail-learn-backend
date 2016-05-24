@@ -14,8 +14,8 @@ public class TripController {
     UserRepository userRepository;
 
     @RequestMapping(value = "/trips", method = RequestMethod.GET)
-    public List<Trip> getTrips() {
-        return tripRepository.findAll();
+    public List<Trip> getTrips(@RequestParam String user_id) {
+        return tripRepository.findAll(user_id);
     }
 
     @RequestMapping(value = "/trips", method = RequestMethod.POST)

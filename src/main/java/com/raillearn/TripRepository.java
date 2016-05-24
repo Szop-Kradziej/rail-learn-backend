@@ -10,9 +10,28 @@ public class TripRepository {
     private AtomicInteger id = new AtomicInteger(0);
     List<Trip> trips = new ArrayList<Trip>();
 
-    public List<Trip> findAll() {
-        return trips;
+    public List<Trip> findAll(String userId) {
+        List<Trip> userTrips = new ArrayList<Trip>();
+        for (Trip trip: trips) {
+            if(isTripFreeToJoin(trip) || isUserJoinedTrip(trip, userId) || isUserTripOffer(trip, userId)) {
+                userTrips.add(trip);
+            }
+        }
+        return userTrips;
     }
+
+    private boolean isTripFreeToJoin(Trip trip) {
+        return trip.getJoinedUser().equals(Trip.NONE_JOINED_USER);
+    }
+
+    private boolean isUserJoinedTrip(Trip trip, String userId) {
+        return trip.getJoinedUser().equals(userId);
+    }
+
+    private boolean isUserTripOffer(Trip trip, String userId) {
+        return trip.getUser().getId().equals(userId);
+    }
+
 
     public Trip save(Trip trip) {
         String tripId = generateNewTripId().toString();
@@ -62,9 +81,5 @@ public class TripRepository {
         Trip trip = trips.get(index);
         trip.setJoinedUser(Trip.NONE_JOINED_USER);
         return updateOne(trip);
-    }
-
-    private boolean isTripFreeToJoin(Trip trip) {
-        return trip.getJoinedUser().equals(Trip.NONE_JOINED_USER);
     }
 }

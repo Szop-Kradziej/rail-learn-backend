@@ -27,6 +27,7 @@ public class Trip {
 
     public Trip() {
         this.id = "0";
+        this.joinedUser = NONE_JOINED_USER;
     }
 
     public String getId() {
