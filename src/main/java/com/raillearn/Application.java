@@ -29,17 +29,17 @@ public class Application {
     private void addTestData(TripRepository tripRepository) {
         Departure departure = new Departure("Warszawa", "04.06.2016", "17:50");
         Route route = new Route(departure, "Olsztyn", new ArrayList<Departure>());
-        User user = new User("http://data.whicdn.com/images/20661152/large.png", "Karol", "0");
+        User user = new User("http://data.whicdn.com/images/20661152/large.png","http://i.imgur.com/bS7eD.jpg", "Karol", "0");
         Offer offer = new Offer("Hiszpański","Cześć! Ucz się ze mną hiszpańskiego - poziom A2.");
 
         Departure departure2 = new Departure("Kraków", "02.06.2016", "12:50");
         Route route2 = new Route(departure2, "Gdańsk", new ArrayList<Departure>());
-        User user2 = new User("http://i.imgur.com/DvpvklR.png", "Obywatel Miś", "0");
+        User user2 = new User("http://i.imgur.com/DvpvklR.png","http://i.imgur.com/ODDEGqc.jpg", "Obywatel Miś", "0");
         Offer offer2 = new Offer("Matematyka","Korepetycje z analizy matematycznej 1-2 rok studiów");
 
         Departure departure3 = new Departure("Bydgoszcz", "30.05.2016", "10:15");
         Route route3 = new Route(departure3, "Warszawa", new ArrayList<Departure>());
-        User user3 = new User("http://i.imgur.com/2wwWa48.jpg", "Asia J.", "0");
+        User user3 = new User("http://i.imgur.com/2wwWa48.jpg","http://i.imgur.com/lQ5gLbfr.jpg", "Asia J.", "0");
         Offer offer3 = new Offer("Francuski","Konwersacje po francusku poziom B2");
 
         Departure departure4 = new Departure("Warszawa", "08.06.2016", "18:15");
@@ -50,8 +50,8 @@ public class Application {
         Route route5 = new Route(departure5, "Warszawa", new ArrayList<Departure>());
 
         tripRepository.save(new Trip("0", route, user, offer));
-        tripRepository.save(new Trip("0", route2, user2, offer2));
         tripRepository.save(new Trip("0", route3, user3, offer3));
+        tripRepository.save(new Trip("0", route2, user2, offer2));
         tripRepository.save(new Trip("0", route4, user3, offer4));
         tripRepository.save(new Trip("0", route5, user3, offer4));
     }
